@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <style>body { font-family: sans-serif; text-align: center; }</style>
+  </head>
+  <body>
+    <script>
+      const params = new URLSearchParams(window.location.search.substring(1));
+      const userId = params.get('userId');
+      const p = document.createElement('p');
+      p.textContent = `Hello ${userId}! Please scan the following QR code to start the game`;
+      document.body.appendChild(p);
+      const img = document.createElement('img');
+      img.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${userId}`;
+      document.body.appendChild(img);
+    </script>
+  </body>
+</html>
